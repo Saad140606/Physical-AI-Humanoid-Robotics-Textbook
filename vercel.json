@@ -1,7 +1,8 @@
 {
-  "buildCommand": "cd ai-robotics-textbook && npm run build",
-  "outputDirectory": "ai-robotics-textbook/build",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
   "framework": "docusaurus-2",
+  "root": "ai-robotics-textbook",
   "routes": [
     {
       "src": "/(.*)",
@@ -9,3 +10,5 @@
     }
   ]
 }
+
+
