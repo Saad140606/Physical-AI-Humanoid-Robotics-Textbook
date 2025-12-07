@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd ai-robotics-textbook && npm run build",
+  "outputDirectory": "ai-robotics-textbook/build",
+  "framework": "docusaurus-2",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
