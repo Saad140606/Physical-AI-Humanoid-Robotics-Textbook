@@ -1,0 +1,43 @@
+name: Frontend Build
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'ai-robotics-textbook/**'
+      - '.github/workflows/frontend.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'ai-robotics-textbook/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: 'ai-robotics-textbook/package-lock.json'
+    
+    - name: Install dependencies
+      run: |
+        cd ai-robotics-textbook
+        npm ci
+    
+    - name: Build
+      run: |
+        cd ai-robotics-textbook
+        npm run build
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      if: success()
+      with:
+        name: build
+        path: ai-robotics-textbook/build
