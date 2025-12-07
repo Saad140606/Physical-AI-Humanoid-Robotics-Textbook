@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd ai-robotics-textbook && npm install && npm run build",
+  "outputDirectory": "ai-robotics-textbook/build",
+  "framework": "docusaurus-2"
+}
